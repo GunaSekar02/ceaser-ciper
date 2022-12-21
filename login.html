@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+          <div class="user-box">
+            <!-- <label>Username</label> -->
+             <input type="text" name="username"  id="user" required>
+            <label>Username</label>
+          </div>
+          <div class="user-box">
+            <!-- <label>Password</label> -->
+            <input type="password" name="pass" id="pass"   required>
+          
+            <label>Password</label>
+          </div>
+          
+          <input id="submit" type="submit" value="submit" onclick="return login()">
+            </form>
+      </div>
+      <script>
+        function login(){
+              var name=document.getElementById('user').value;
+              var p=document.getElementById('pass').value;
+                            if(name=="admin" && p=="send"){
+                alert("login successful");
+                window.location.href="sender.html";
+                return false;
+               }
+               if(name=="admin" && p=="receive"){
+                alert("login successful");
+                window.location.href="receiver.html";
+                return false;
+               }
+        }
+    </script>
+</body>
+</html>

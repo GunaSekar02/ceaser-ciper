@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sender.css">
+    <title>sender</title>
+</head>
+<body>
+    
+    <div class="encryption">
+        <p style="color: white;">Enter the Text</p>
+        <textarea id="text" cols="100"rows="7"></textarea><br>
+        <input type="button" value="encode" onclick="encrypt()">
+        <p style="color: white;">The Encrypted is(ciper text) :</p>
+        <textarea id="ctext" cols="100" rows="7"></textarea>
+    </div>
+    <script>
+        var text;
+        function isUpperCase(str) {
+        return str === str.toUpperCase();
+        }
+        function encrypt(){
+            text=document.getElementById('text').value;
+            var result="";
+            var key=3;
+            for (var i = 0; i < text.length; i++) {
+                // Get the character we'll be appending
+                var c = text[i];
+
+                // If it's a letter...
+                if (c.match(/[a-z]/i)) {
+                  // Get its code
+                  var code = text.charCodeAt(i);
+                
+                  // Uppercase letters
+                  if (code >= 65 && code <= 90) {
+                    c = String.fromCharCode(((code - 65 + key) % 26) + 65);
+                  }
+              
+                  // Lowercase letters
+                  else if (code >= 97 && code <= 122) {
+                    c = String.fromCharCode(((code - 97 + key) % 26) + 97);
+                  }
+                }
+            
+                // Append
+                result += c;
+            }         
+        document.getElementById('ctext').value=result;
+
+        }
+    </script>
+</body>
+</html>
